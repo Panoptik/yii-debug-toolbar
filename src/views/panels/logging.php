@@ -1,5 +1,8 @@
  <?php
-$colors=array(
+ use CLogger;
+ use Panoptik\yiidebug\YiiDebug;
+
+ $colors=array(
     CLogger::LEVEL_PROFILE=>'#DFFFE0',
     CLogger::LEVEL_INFO=>'#FFFFDF',
     CLogger::LEVEL_WARNING=>'#FFDFE5',
