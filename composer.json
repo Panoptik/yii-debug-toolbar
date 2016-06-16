@@ -1,5 +1,5 @@
 {
-    "name": "malyshev/yii-debug-toolbar",
+    "name": "Panoptik/yii-debug-toolbar",
     "description": "A configurable set of panels that display various debug information about the current request/response.",
     "keywords": ["yii", "debug", "extension"],
     "license": "BSD-3-Clause",
