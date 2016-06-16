@@ -22,6 +22,8 @@ use Yii;
  * @version $Id$
  * @package YiiDebugToolbar
  * @since 1.1.7
+ *
+ * @property bool $enabled @see https://github.com/yiiext/yii/blob/master/framework/logging/CLogRoute.php#L37
  */
 class YiiDebugToolbarRoute extends CLogRoute
 {
@@ -56,6 +58,12 @@ class YiiDebugToolbarRoute extends CLogRoute
       'text/html',
       'application/xhtml+xml',
     );
+
+    /**
+     * RegExp allowed user agent pattern without delimeters
+     * @var string
+     */
+    public $allowedUserAgentPattern = 'Mozilla|Chrome|Safari|Opera';
 
     private $_toolbarWidget,
             $_startTime,
@@ -123,8 +131,8 @@ class YiiDebugToolbarRoute extends CLogRoute
         $this->enabled = strpos(trim($route, '/'), 'debug') !== 0;
 
         $this->enabled && $this->enabled = ($this->allowIp(Yii::app()->request->userHostAddress)
-                && !Yii::app()->getRequest()->getIsAjaxRequest() && (Yii::app() instanceof CWebApplication))
-        		&& $this->checkContentTypeWhitelist();
+                && !Yii::app()->getRequest()->getIsAjaxRequest() && (Yii::app() instanceof CWebApplication)
+        		&& $this->checkContentTypeWhitelist()&& $this->checkUserAgent());
 
         if ($this->enabled) {
             Yii::app()->attachEventHandler('onBeginRequest', array($this, 'onBeginRequest'));
@@ -198,7 +206,9 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     protected function processLogs($logs)
     {
-        $this->getToolbarWidget()->run();
+        if($this->enabled) {
+            $this->getToolbarWidget()->run();
+        }
     }
 
     private function checkContentTypeWhitelist()
@@ -279,5 +289,14 @@ class YiiDebugToolbarRoute extends CLogRoute
         } else {
             return false;
         }
+    }
+
+    /**
+     * Check User Agent. Should be a browser user agent. Otherwise debug info should not shown
+     * @return bool
+     */
+    protected function checkUserAgent()
+    {
+        return preg_match('~' . $this->allowedUserAgentPattern . '~', Yii::app()->request->getUserAgent());
     }
 }
