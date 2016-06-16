@@ -6,7 +6,7 @@
  * @author Sergey Malyshev <malyshev@zfort.net>
  */
 
-namespace Panoptik\iidebug\widgets;
+namespace Panoptik\yiidebug\widgets;
 
 use CWidget;
 use Yii;
