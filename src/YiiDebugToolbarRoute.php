@@ -10,6 +10,7 @@ namespace Panoptik\yiidebug;
 use CEvent;
 use CLogRoute;
 use CWebApplication;
+use Panoptik\yiidebug\YiiDebugToolbar;
 use Yii;
 
 
@@ -30,11 +31,11 @@ class YiiDebugToolbarRoute extends CLogRoute
 
     private $_panels = array(
         //'YiiDebugToolbarPanelServer',
-        'YiiDebugToolbarPanelRequest',
-        'YiiDebugToolbarPanelSettings',
-        'YiiDebugToolbarPanelViews',
-        'YiiDebugToolbarPanelSql',
-        'YiiDebugToolbarPanelLogging',
+        '\Panoptik\yiidebug\panels\YiiDebugToolbarPanelRequest',
+        '\Panoptik\yiidebug\panels\YiiDebugToolbarPanelSettings',
+        '\Panoptik\yiidebug\panels\YiiDebugToolbarPanelViews',
+        '\Panoptik\yiidebug\panels\YiiDebugToolbarPanelSql',
+        '\Panoptik\yiidebug\panels\YiiDebugToolbarPanelLogging',
     );
 
     /**
@@ -71,7 +72,7 @@ class YiiDebugToolbarRoute extends CLogRoute
 
 
     private $_proxyMap = array(
-        'viewRenderer' => 'YiiDebugViewRenderer'
+        'viewRenderer' => '\Panoptik\yiidebug\YiiDebugViewRenderer'
     );
 
     public function setPanels(array $pannels)
@@ -100,12 +101,16 @@ class YiiDebugToolbarRoute extends CLogRoute
         return ($this->endTime-$this->startTime);
     }
 
+    /**
+     * @return YiiDebugToolbar
+     * @throws \CException
+     */
     protected function getToolbarWidget()
     {
         if (null === $this->_toolbarWidget)
         {
             $this->_toolbarWidget = Yii::createComponent(array(
-                'class'=>'YiiDebugToolbar',
+                'class'=>'\Panoptik\yiidebug\YiiDebugToolbar',
                 'panels'=> $this->panels
             ), $this);
         }
@@ -116,16 +121,12 @@ class YiiDebugToolbarRoute extends CLogRoute
     {
         Yii::app()->controllerMap = array_merge(array(
         	'debug' => array(
-        		'class' => 'YiiDebugController'
+        		'class' => '\Panoptik\yiidebug\YiiDebugController'
         	)
         ), Yii::app()->controllerMap);
         
         Yii::setPathOfAlias('yii-debug-toolbar', dirname(__FILE__));
         
-        Yii::app()->setImport(array(
-        	'yii-debug-toolbar.*'
-        ));
-
         $route = Yii::app()->getUrlManager()->parseUrl(Yii::app()->getRequest());
         
         $this->enabled = strpos(trim($route, '/'), 'debug') !== 0;

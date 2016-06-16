@@ -1,3 +1,6 @@
+<?php
+use Panoptik\yiidebug\YiiDebug;
+?>
 <table>
     <thead>
         <tr>

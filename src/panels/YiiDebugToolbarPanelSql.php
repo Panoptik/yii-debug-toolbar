@@ -5,7 +5,7 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-namespace yiidebug\panels;
+namespace Panoptik\yiidebug\panels;
 
 use CDbConnection;
 use CException;

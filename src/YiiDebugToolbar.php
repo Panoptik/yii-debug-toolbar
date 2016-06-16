@@ -7,6 +7,8 @@
 
 namespace Panoptik\yiidebug;
 
+use CClientScript;
+use CException;
 use CWidget;
 use Yii;
 
@@ -101,7 +103,7 @@ class YiiDebugToolbar extends CWidget
     public function init()
     {
         if (false === ($this->owner instanceof \CLogRoute)) {
-            throw new \CException(YiiDebug::t('YiiDebugToolbar owner must be instance of CLogRoute'));
+            throw new CException(YiiDebug::t('YiiDebugToolbar owner must be instance of CLogRoute'));
         }
 
         $this->createPanels()
@@ -125,20 +127,21 @@ class YiiDebugToolbar extends CWidget
      */
     private function registerClientScripts()
     {
+        /** @var CClientScript $cs */
         $cs = \Yii::app()->getClientScript()
 	        	->registerCoreScript('jquery');
         $cs->registerCssFile($this->assetsUrl . '/main.css');
 
         $cs->registerScriptFile($this->assetsUrl . '/main.js',
-                \CClientScript::POS_END);
+                CClientScript::POS_END);
 
         return $this;
     }
 
     /**
      * Create panels.
-     *
      * @return YiiDebugToolbar
+     * @throws \CException
      */
     private function createPanels()
     {
@@ -163,7 +166,7 @@ class YiiDebugToolbar extends CWidget
                 $panel = \Yii::createComponent($config, $this);
 
                 if (false === ($panel instanceof YiiDebugToolbarPanelInterface)) {
-                    throw new \CException(\Yii::t('yii-debug-toolbar',
+                    throw new CException(Yii::t('yii-debug-toolbar',
                             'The %class% class must be compatible with YiiDebugToolbarPanelInterface', array(
                                 '%class%' => get_class($panel)
                             )));

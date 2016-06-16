@@ -33,6 +33,13 @@ class YiiDebugViewRenderer extends YiiDebugComponentProxy
         return $this->_debugStackTrace;
     }
 
+    /**
+     * @param CController $context
+     * @param $sourceFile
+     * @param $data
+     * @param $return
+     * @return mixed
+     */
     public function renderFile($context, $sourceFile, $data, $return)
     {
         $this->collectDebugInfo($context, $sourceFile, $data);

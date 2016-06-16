@@ -1,8 +1,10 @@
 <div id="ydtb-toolbar" data-ydtb-toolbar class="ydtb-collapse">
-    <a href="javascript:;//" data-ydtb-toggle="[data-ydtb-toolbar]"><?php echo YiiDebug::t('TOOLBAR') ?></a>
+    <a href="javascript:;//" data-ydtb-toggle="[data-ydtb-toolbar]"><?php
+
+		echo \Panoptik\yiidebug\YiiDebug::t('TOOLBAR') ?></a>
 	<div data-ydtb-sidebar>
 		<h1>Yii <?php echo Yii::getVersion() ?></h1>
-		<?php $this->widget('YiiDebugToolbarResourceUsage'); ?>
+		<?php $this->widget('\Panoptik\yiidebug\widgets\YiiDebugToolbarResourceUsage'); ?>
 		<ul data-ydtb-menu>
 			<?php foreach ($panels as $panel): ?>
 			<li><a href="javascript:;//" data-ydtb-expand-panel="<?php echo $panel->id ?>"> 

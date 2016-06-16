@@ -1,3 +1,7 @@
+<?php
+use Panoptik\yiidebug\YiiDebug;
+?>
+
 <div data-ydtb-panel-data="<?php echo $this->id ?>">
     <div>
         <div data-ydtb-accordion="<?php echo $this->id?>">

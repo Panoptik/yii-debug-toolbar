@@ -10,6 +10,7 @@
  * @since 1.1.7
  */
 
+use Panoptik\yiidebug\YiiDebug;
 
 $index = 1;
 ?>

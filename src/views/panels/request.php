@@ -1,10 +1,13 @@
+<?php
+use Panoptik\yiidebug\YiiDebug;
+?>
 <div data-ydtb-panel-data="<?php echo $this->id ?>">
     <div>
         <div data-ydtb-accordion="<?php echo $this->id?>">
             <div data-ydtb-accordion-group="collapsed">
                 <div data-ydtb-accordion-heading="" data-ydtb-data-size="<?php echo count($server)?>">
                     <i data-ydtb-icon="s"></i>
-                    <span><?php echo YiiDebug::t('Request Server Parameters')?></span>
+                    <span><?php echo \Panoptik\yiidebug\YiiDebug::t('Request Server Parameters')?></span>
                     <i data-ydtb-icon="q"></i>
                     <i data-ydtb-icon="t"></i>
                     <div class="clear clearfix"></div>
