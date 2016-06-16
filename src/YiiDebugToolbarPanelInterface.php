@@ -1,6 +1,6 @@
 <?php
 /**
- * @author: Alexander Golovko <alexander.golovko@comodo.od.ua>
+ * @author: Alexander Golovko <alexander.golovko.1989@gmail.com>
  * @created: 16.06.16 13:13
  */
 
