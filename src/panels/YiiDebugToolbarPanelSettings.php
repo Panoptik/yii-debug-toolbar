@@ -5,6 +5,12 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace Panoptik\yiidebug\panels;
+
+use Yii;
+use Panoptik\yiidebug\YiiDebug;
+use Panoptik\yiidebug\YiiDebugToolbarPanel;
+
 
 /**
  * YiiDebugToolbarPanelSettings class

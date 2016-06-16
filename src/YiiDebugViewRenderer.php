@@ -5,6 +5,10 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace Panoptik\yiidebug;
+
+use CController;
+
 /**
  * YiiDebugViewRenderer represents an ...
  *
@@ -128,7 +132,7 @@ class YiiDebugViewRenderer extends YiiDebugComponentProxy
             'sourceFile'=>$sourceFile,
             'data'=>$data,
             'backTrace'=>$backTraceItem,
-            'reflection' => new ReflectionObject($context)
+            'reflection' => new \ReflectionObject($context)
         ));
     }
     

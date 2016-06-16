@@ -5,6 +5,11 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace Panoptik\yiidebug;
+
+use CComponent;
+use CVarDumper;
+use Yii;
 
 /**
  * YiiDebug class.
@@ -64,7 +69,7 @@ class YiiDebug extends CComponent
 
     public static function getClass($class)
     {
-        return new ReflectionClass($class);
+        return new \ReflectionClass($class);
     }
 
     public static function getClassMethod($class,$name)

@@ -5,6 +5,11 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace Panoptik\yiidebug\panels;
+
+use Panoptik\yiidebug\YiiDebug;
+use Panoptik\yiidebug\YiiDebugToolbarPanel;
+
 
 /**
  * YiiDebugToolbarPanelRequest class

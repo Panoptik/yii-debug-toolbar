@@ -5,6 +5,12 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace Panoptik\yiidebug\panels;
+
+use CLogger;
+use Panoptik\yiidebug\YiiDebug;
+use Panoptik\yiidebug\YiiDebugToolbarPanel;
+
 
 /**
  * YiiDebugToolbarPanelLogging represents an ...

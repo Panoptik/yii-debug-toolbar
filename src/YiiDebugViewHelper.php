@@ -3,6 +3,7 @@
  * YiiDebugViewHelper class file.
  */
 
+namespace Panoptik\yiidebug;
 
 /**
  * YiiDebugViewHelper class.

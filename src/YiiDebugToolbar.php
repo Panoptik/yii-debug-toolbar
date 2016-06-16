@@ -5,8 +5,10 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-Yii::import('yii-debug-toolbar.panels.*');
-Yii::import('yii-debug-toolbar.widgets.*');
+namespace Panoptik\yiidebug;
+
+use CWidget;
+use Yii;
 
 /**
  * YiiDebugToolbar represents an ...
@@ -98,8 +100,8 @@ class YiiDebugToolbar extends CWidget
      */
     public function init()
     {
-        if (false === ($this->owner instanceof CLogRoute)) {
-            throw new CException(YiiDebug::t('YiiDebugToolbar owner must be instance of CLogRoute'));
+        if (false === ($this->owner instanceof \CLogRoute)) {
+            throw new \CException(YiiDebug::t('YiiDebugToolbar owner must be instance of CLogRoute'));
         }
 
         $this->createPanels()
@@ -123,12 +125,12 @@ class YiiDebugToolbar extends CWidget
      */
     private function registerClientScripts()
     {
-        $cs = Yii::app()->getClientScript()
+        $cs = \Yii::app()->getClientScript()
 	        	->registerCoreScript('jquery');
         $cs->registerCssFile($this->assetsUrl . '/main.css');
 
         $cs->registerScriptFile($this->assetsUrl . '/main.js',
-                CClientScript::POS_END);
+                \CClientScript::POS_END);
 
         return $this;
     }
@@ -158,10 +160,10 @@ class YiiDebugToolbar extends CWidget
                         unset($config['enabled']);
                     }
                 }
-                $panel = Yii::createComponent($config, $this);
+                $panel = \Yii::createComponent($config, $this);
 
                 if (false === ($panel instanceof YiiDebugToolbarPanelInterface)) {
-                    throw new CException(Yii::t('yii-debug-toolbar',
+                    throw new \CException(\Yii::t('yii-debug-toolbar',
                             'The %class% class must be compatible with YiiDebugToolbarPanelInterface', array(
                                 '%class%' => get_class($panel)
                             )));

@@ -8,6 +8,14 @@
             "name": "Sergey Malyshev",
             "email": "malyshev.php@gmail.com",
             "homepage": "http://www.yiiframework.com/extension/yii-debug-toolbar/"
-        }    
-    ]
+        },
+        {
+            "name": "Alexander Golovko",
+            "email": "aleksandr.golovko.1989@gmail.com",
+            "homepage": "http://panoptik.net"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"Panoptik\yiidebug": "yii-debug-toolbar"}
+    }
 }

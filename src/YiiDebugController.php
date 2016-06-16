@@ -1,5 +1,9 @@
 <?php
 
+namespace Panoptik\yiidebug;
+
+use CController;
+
 class YiiDebugController extends CController
 {
 	

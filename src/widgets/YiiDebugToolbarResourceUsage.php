@@ -6,6 +6,11 @@
  * @author Sergey Malyshev <malyshev@zfort.net>
  */
 
+namespace Panoptik\iidebug\widgets;
+
+use CWidget;
+use Yii;
+
 /**
  * YiiDebugToolbarResourceUsage represents an ...
  *

@@ -5,7 +5,12 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
-Yii::import('yii-debug-toolbar.YiiDebugViewRenderer');
+namespace Panoptik\yiidebug\panels;
+
+use Panoptik\yiidebug\YiiDebug;
+use Panoptik\yiidebug\YiiDebugToolbarPanel;
+use Panoptik\yiidebug\YiiDebugViewRenderer;
+use Yii;
 
 /**
  * YiiDebugToolbarPanelViews represents an ...
@@ -48,7 +53,7 @@ class YiiDebugToolbarPanelViews extends YiiDebugToolbarPanel
         $this->render('views', array('data'=>$data));
     }
 
-    public function getInheritance(ReflectionClass $class)
+    public function getInheritance(\ReflectionClass $class)
     {
         $data = array();
 

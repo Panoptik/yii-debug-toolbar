@@ -5,6 +5,18 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace yiidebug\panels;
+
+use CDbConnection;
+use CException;
+use CLogger;
+use CPropertyValue;
+use CTextHighlighter;
+use Exception;
+use Panoptik\yiidebug\YiiDebug;
+use Panoptik\yiidebug\YiiDebugToolbarPanel;
+use Yii;
+
 
 /**
  * YiiDebugToolbarPanelSql class.

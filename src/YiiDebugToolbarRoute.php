@@ -5,6 +5,14 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace Panoptik\yiidebug;
+
+use CEvent;
+use CLogRoute;
+use CWebApplication;
+use Yii;
+
+
 /**
  * YiiDebugToolbarRouter represents an ...
  *
@@ -252,6 +260,7 @@ class YiiDebugToolbarRoute extends CLogRoute
      * @param integer|string $ip IP to check.
      * @param integer|string $matchIp Radical of the mask (e.g. 192.168.0.0).
      * @param integer $maskBits Size of the mask (e.g. 24).
+     * @return bool
      */
     protected static function matchIpMask($ip, $maskIp, $maskBits)
     {

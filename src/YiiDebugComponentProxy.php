@@ -5,6 +5,10 @@
  * @author Sergey Malyshev <malyshev.php@gmail.com>
  */
 
+namespace Panoptik\yiidebug;
+
+use CComponent;
+
 /**
  * ProxyComponent represents an ...
  *
