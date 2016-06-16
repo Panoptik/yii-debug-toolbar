@@ -17,5 +17,10 @@
     ],
     "autoload": {
         "psr-0": {"Panoptik\\yiidebug": "src/"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0"
+        }
     }
 }
